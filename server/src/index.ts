@@ -26,9 +26,9 @@ async function main() {
   for (let i = 0; i < filePaths.length; i++) {
     const absPath = path.resolve(filePaths[i]);
 
-    // Ensure file exists
     if (!fs.existsSync(absPath)) {
-      fs.writeFileSync(absPath, '## Tasks\n\n', 'utf-8');
+      console.error(`File not found: ${absPath}`);
+      process.exit(1);
     }
 
     let repoRoot: string;
