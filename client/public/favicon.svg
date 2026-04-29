@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="9 44 182 182" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="nailPath" d="M68 95Q68 75 100 75Q132 75 132 95Q132 120 100 125Q68 120 68 95Z"/>
+    
+    <clipPath id="clipNail">
+      <use href="#nailPath"/>
+    </clipPath>
+  </defs>
+
+  <!-- Toe body now filled yellow -->
+  <path d="M40 220V110a60 60 0 0 1 120 0v110" 
+        fill="#FFD1A3" stroke="#132F4C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <use href="#nailPath" fill="#5FB3C1"/>
+
+  <path d="M68 105Q100 92 132 105Q120 125 100 125Q80 125 68 105Z" 
+        fill="#8ED1DC" opacity="0.7" clip-path="url(#clipNail)"/>
+
+  <use href="#nailPath" fill="none" stroke="#132F4C" stroke-width="10" stroke-linejoin="round"/>
+</svg>
