@@ -12,7 +12,7 @@ async function request<T>(url: string, options?: RequestInit): Promise<T> {
 }
 
 export const api = {
-  getFiles(): Promise<Pick<TodoFile, 'id' | 'name' | 'path'>[]> {
+  getFiles(): Promise<Pick<TodoFile, 'id' | 'name' | 'path' | 'isRepo'>[]> {
     return request('/files');
   },
 

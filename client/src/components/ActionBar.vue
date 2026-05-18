@@ -6,6 +6,7 @@
       @click="store.saveFile(fileId)"
     >
       <span v-if="store.saving" class="spinner">⟳</span>
+      <span v-else-if="isRepo">🚀 Push</span>
       <span v-else>💾 Save</span>
     </button>
     <button
@@ -19,10 +20,13 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { useTodosStore } from '../stores/todos';
 
-defineProps<{ fileId: string }>();
+const props = defineProps<{ fileId: string }>();
 const store = useTodosStore();
+
+const isRepo = computed(() => store.files.find(f => f.id === props.fileId)?.isRepo ?? false);
 </script>
 
 <style scoped>

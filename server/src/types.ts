@@ -3,6 +3,7 @@ export interface TodoFile {
   path: string;
   repoRoot: string;
   name: string;
+  isRepo: boolean;
 }
 
 export interface Category {

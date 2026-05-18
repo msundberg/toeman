@@ -32,11 +32,14 @@ async function main() {
     }
 
     let repoRoot: string;
+    let isRepo: boolean;
     try {
       const git = simpleGit(path.dirname(absPath));
       repoRoot = (await git.revparse(['--show-toplevel'])).trim();
+      isRepo = true;
     } catch {
       repoRoot = path.dirname(absPath);
+      isRepo = false;
     }
 
     const todoFile: TodoFile = {
@@ -44,6 +47,7 @@ async function main() {
       path: absPath,
       repoRoot,
       name: path.basename(absPath),
+      isRepo,
     };
 
     registry.set(todoFile.id, todoFile);
